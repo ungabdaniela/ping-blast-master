@@ -1,5 +1,9 @@
 extends Control
 
+# Required class references
+const Global = preload("res://scripts/Global.gd")
+
+# Node references
 onready var username_input = $CenterContainer/SignUpPanel/VBoxContainer/Username
 onready var email_input = $CenterContainer/SignUpPanel/VBoxContainer/Email
 onready var password_input = $CenterContainer/SignUpPanel/VBoxContainer/Password
@@ -141,6 +145,16 @@ func create_account(username: String, email: String) -> void:
 	Global.player_name = username
 	save_player_name(username)
 	error_label.text = "Account created successfully!"
+	
+	# Save everything before scene transition
+	save_user_data(username, password_input.text, email)
+	
 	# Wait a bit before switching scenes
 	yield(get_tree().create_timer(1.0), "timeout")
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	
+	# Try to load MainMenu scene
+	var scene = load("res://scenes/MainMenu.tscn")
+	if scene:
+		get_tree().change_scene_to(scene)
+	else:
+		error_label.text = "Error loading main menu"
