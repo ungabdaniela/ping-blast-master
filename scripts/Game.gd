@@ -105,6 +105,9 @@ func save_highscore():
 	save_file.open("user://highscores.json", File.WRITE)
 	save_file.store_line(to_json(data))
 	save_file.close()
+	
+	# Save to local leaderboard
+	ScoresManager.add_score(Global.player_name, $CanvasLayer/HUD.get_score())
 
 func _on_HUD_switch_bg():
 	current_bg += 1

@@ -14,7 +14,20 @@ var max_scores = 10
 
 func add_score(player_name: String, score: int) -> void:
 	var scores = load_scores()
-	scores.append({"player_name": player_name, "score": score})
+	
+	# Check if player already exists
+	var player_found = false
+	for i in range(scores.size()):
+		if scores[i].player_name == player_name:
+			# Update score if new score is higher
+			if score > scores[i].score:
+				scores[i].score = score
+			player_found = true
+			break
+	
+	# Add new player if not found
+	if not player_found:
+		scores.append({"player_name": player_name, "score": score})
 	
 	# Sort scores in descending order
 	scores.sort_custom(self, "sort_by_score")

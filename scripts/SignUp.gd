@@ -32,6 +32,9 @@ func _on_SignUpButton_pressed():
 	var password = password_input.text
 	var confirm_password = confirm_password_input.text
 	
+	# Clear previous error message
+	error_label.text = ""
+	
 	# Basic validation
 	if username.empty() or email.empty() or password.empty() or confirm_password.empty():
 		error_label.text = "Please fill in all fields"
@@ -55,10 +58,18 @@ func _on_SignUpButton_pressed():
 	
 	# Save credentials and create account
 	save_user_data(username, password, email)
-	create_account(username, email)
 	
-	# Go to main menu
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	# Update global state
+	Global.player_name = username
+	save_player_name(username)
+	
+	error_label.text = "Account created successfully!"
+	
+	# Wait a moment then try to load main menu
+	yield(get_tree().create_timer(1.0), "timeout")
+	var err = get_tree().change_scene("res://scenes/MainMenu.tscn")
+	if err != OK:
+		error_label.text = "Error loading main menu. Please try again."
 
 func _on_BackToLogin_pressed():
 	get_tree().change_scene("res://scenes/Login.tscn")
