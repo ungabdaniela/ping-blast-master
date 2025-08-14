@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3]
+
+[node name="Login" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Username" type="LineEdit" parent="."]
+margin_left = 400.0
+margin_top = 200.0
+margin_right = 800.0
+margin_bottom = 240.0
+placeholder_text = "Username or Email"
+
+[node name="Password" type="LineEdit" parent="."]
+margin_left = 400.0
+margin_top = 260.0
+margin_right = 800.0
+margin_bottom = 300.0
+placeholder_text = "Password"
+secret = true
+
+[node name="LoginButton" type="Button" parent="."]
+margin_left = 400.0
+margin_top = 320.0
+margin_right = 800.0
+margin_bottom = 360.0
+text = "Log In"
+
+[node name="ErrorLabel" type="Label" parent="."]
+margin_left = 400.0
+margin_top = 370.0
+margin_right = 800.0
+margin_bottom = 400.0
+text = ""
+visible = false

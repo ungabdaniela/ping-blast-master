@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/silent_wolf/Scores/Leaderboard.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/vcr.ttf" type="FontFile" id=2]
+[ext_resource path="res://addons/silent_wolf/assets/fonts/Comfortaa-Bold.ttf" type="FontFile" id=3]
+[ext_resource path="res://addons/silent_wolf/common/SWButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="FontFile" id=1]
+size = 76
+font_data = ExtResource( 2 )
+
+[sub_resource type="FontFile" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=3]
+
+[node name="Leaderboard" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OldBoard" type="MarginContainer" parent="."]
+visible = false
+offset_left = 50.0
+offset_right = 50.0
+offset_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScores" type="TextureRect" parent="OldBoard"]
+offset_bottom = 40.0
+
+[node name="Board" type="VBoxContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleContainer" type="CenterContainer" parent="Board"]
+offset_right = 1280.0
+offset_bottom = 67.0
+
+[node name="Label" type="Label" parent="Board/TitleContainer"]
+offset_left = 257.0
+offset_right = 1022.0
+offset_bottom = 67.0
+theme_override_fonts/font = SubResource( 1 )
+text = "TITLE_LEADERBOARD"
+
+[node name="MessageContainer" type="CenterContainer" parent="Board"]
+visible = false
+offset_top = 89.0
+offset_right = 1864.0
+offset_bottom = 126.0
+
+[node name="TextMessage" type="Label" parent="Board/MessageContainer"]
+offset_left = 789.0
+offset_right = 1075.0
+offset_bottom = 37.0
+theme_override_fonts/font = SubResource( 2 )
+text = "Loading scores..."
+valign = 1
+
+[node name="HighScores" type="CenterContainer" parent="Board"]
+offset_top = 67.0
+offset_right = 1280.0
+offset_bottom = 167.0
+custom_minimum_size = Vector2( 0, 100 )
+theme = SubResource( 3 )
+
+[node name="ScoreItemContainer" type="VBoxContainer" parent="Board/HighScores"]
+offset_left = 640.0
+offset_top = 50.0
+offset_right = 640.0
+offset_bottom = 50.0
+
+[node name="CloseButtonContainer" type="CenterContainer" parent="."]
+offset_top = 591.0
+offset_right = 1280.0
+offset_bottom = 709.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" parent="CloseButtonContainer" instance=ExtResource( 4 )]
+offset_left = 505.0
+offset_right = 775.0
+offset_bottom = 118.0
+text = "Retour"
+
+[connection signal="pressed" from="CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]
