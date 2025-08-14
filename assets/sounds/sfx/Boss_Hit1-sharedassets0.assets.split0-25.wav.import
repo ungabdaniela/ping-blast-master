@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boss_Hit1-sharedassets0.assets.split0-25.wav-44ddcefc362644367a988161daae35d4.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/Boss_Hit1-sharedassets0.assets.split0-25.wav"
+dest_files=[ "res://.import/Boss_Hit1-sharedassets0.assets.split0-25.wav-44ddcefc362644367a988161daae35d4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

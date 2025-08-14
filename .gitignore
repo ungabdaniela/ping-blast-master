@@ -1,0 +1,5 @@
+.import/
+build/
+*.translation
+banner.png.import
+export_presets.cfg

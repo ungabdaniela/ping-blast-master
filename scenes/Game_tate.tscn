@@ -1,0 +1,246 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/backgrounds/bricks.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/vcr.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/Game.gd" type="Script" id=5]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/sfx/New_Record-sharedassets0.assets.split0-65.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/sfx/Game_Lose-sharedassets0.assets.split0-36.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/icons/pause.png" type="Texture" id=9]
+[ext_resource path="res://assets/sounds/sfx/Fire-3b5c3fccd54504706b53e5578f3c8ef9-1.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sounds/sfx/Ball_Pop1-sharedassets0.assets.split0-32.wav" type="AudioStream" id=11]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 400, 650 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 636, 24 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 128
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 64
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "paused"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0705882, 0.768627, 0.0705882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.745098, 0, 0, 1 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 2544.0
+margin_bottom = 1424.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 1180 )
+
+[node name="ball0" parent="." instance=ExtResource( 2 )]
+position = Vector2( 640, 320 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( -50, 0 )
+shape = SubResource( 6 )
+action = "click"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="CanvasLayer"]
+collision_mask = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Floor"]
+margin_top = 1232.0
+margin_right = 720.0
+margin_bottom = 1280.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Floor"]
+position = Vector2( 360, 1256 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Floor"]
+position = Vector2( 744, 600 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CanvasLayer/Floor"]
+position = Vector2( -24, 600 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/Floor"]
+margin_left = -40.0
+margin_top = -40.0
+margin_right = 1288.0
+margin_bottom = 64.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 640.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 320.0
+script = ExtResource( 6 )
+
+[node name="ScoreValue" type="Label" parent="CanvasLayer/HUD"]
+margin_left = -592.0
+margin_top = -320.0
+margin_right = 32.0
+margin_bottom = -263.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 1
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/HUD"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -616.0
+margin_top = 168.0
+margin_right = 59.0
+margin_bottom = 281.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "GAME OVER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewHighScoreLabel" type="Label" parent="CanvasLayer/HUD"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -544.5
+margin_top = 292.5
+margin_right = -12.5
+margin_bottom = 349.5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "GAME_NEWRECORD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue" type="Label" parent="CanvasLayer/HUD"]
+margin_left = 424.0
+margin_top = -320.0
+margin_right = 630.0
+margin_bottom = -263.0
+custom_fonts/font = SubResource( 11 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/HUD"]
+visible = false
+position = Vector2( 0, -288 )
+scale = Vector2( 0.74, 0.74 )
+texture = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HUD/Sprite"]
+autoplay = "paused"
+anims/RESET = SubResource( 7 )
+anims/paused = SubResource( 8 )
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HUD"]
+pause_mode = 1
+visible = false
+margin_left = -640.0
+margin_top = -256.0
+margin_right = 80.0
+margin_bottom = -224.0
+custom_styles/fg = SubResource( 9 )
+custom_styles/bg = SubResource( 10 )
+
+[node name="BonusTimer" type="Timer" parent="CanvasLayer/HUD/ProgressBar"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="SpawnNewTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -6.0
+
+[node name="NewHighScoreSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -4.0
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+volume_db = -6.0
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -14.0
+
+[node name="PopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[connection signal="lose" from="Player" to="." method="_on_Player_lose"]
+[connection signal="multibullet" from="Player" to="." method="_on_Player_multibullet"]
+[connection signal="multibullet_stop" from="Player" to="." method="_on_Player_multibullet_stop"]
+[connection signal="switch_bg" from="CanvasLayer/HUD" to="." method="_on_HUD_switch_bg"]
+[connection signal="timeout" from="CanvasLayer/HUD/ProgressBar/BonusTimer" to="CanvasLayer/HUD" method="_on_BonusTimer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="SpawnNewTimer" to="." method="_on_SpawnNewTimer_timeout"]
+[connection signal="finished" from="GameOverSound" to="." method="_on_GameOverSound_finished"]
