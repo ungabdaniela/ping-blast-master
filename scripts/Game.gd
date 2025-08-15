@@ -54,12 +54,12 @@ func _on_Player_lose():
 	$GameOverSound.play() #Le son de game over se joue
 	$CanvasLayer/HUD/GameOverLabel.show() #Le texte "GAME OVER" s'affiche
 	#Si meilleur score
-	if $CanvasLayer/HUD.score > Global.highscore:
-		$NewHighScoreSound.play() #Joue le son du High Score
-		$CanvasLayer/HUD/NewHighScoreLabel.show() #Le texte "Nouveau Record !" s'affiche
-		save_highscore() #Sauvegarde le record
-		if Global.leaderboard_enabled:
-			SilentWolf.Scores.persist_score(Global.player_name, $CanvasLayer/HUD.get_score()) #Inscrit votre record dans les classements
+	#if $CanvasLayer/HUD.score > G#lobal.highscore:
+	$NewHighScoreSound.play() #Joue le son du High Score
+	$CanvasLayer/HUD/NewHighScoreLabel.show() #Le texte "Nouveau Record !" s'affiche
+	save_highscore() #Sauvegarde le record
+	if Global.leaderboard_enabled:
+		SilentWolf.Scores.persist_score(Global.player_name, $CanvasLayer/HUD.get_score()) #Inscrit votre record dans les classements
 
 #HOLY SHIT! C'est bordelique!
 #Spawn deux petites balles

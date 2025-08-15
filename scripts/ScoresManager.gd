@@ -1,6 +1,6 @@
 extends Node
 
-var scores_file = "user://leaderboard.json"
+var scores_file = "user://leaderboards.json"
 var max_scores = 10
 
 # Structure of the leaderboard data:
