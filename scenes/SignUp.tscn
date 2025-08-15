@@ -47,57 +47,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="SignUpPanel" type="Panel" parent="CenterContainer"]
-margin_left = 390
-margin_top = 110
-margin_right = 890
-margin_bottom = 610
+margin_left = 390.0
+margin_top = 110.0
+margin_right = 890.0
+margin_bottom = 610.0
 rect_min_size = Vector2( 500, 500 )
 custom_styles/panel = SubResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/SignUpPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 40
-margin_top = 30
-margin_right = -40
-margin_bottom = -30
+margin_left = 40.0
+margin_top = 30.0
+margin_right = -40.0
+margin_bottom = -30.0
 custom_constants/separation = 20
 
 [node name="Title" type="Label" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_right = 420
-margin_bottom = 48
+margin_right = 420.0
+margin_bottom = 43.0
 custom_fonts/font = SubResource( 2 )
 text = "Create Account"
 align = 1
 
 [node name="Spacer1" type="Control" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_top = 68
-margin_right = 420
-margin_bottom = 88
+margin_top = 63.0
+margin_right = 420.0
+margin_bottom = 83.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="Username" type="LineEdit" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_top = 108
-margin_right = 420
-margin_bottom = 148
+margin_top = 103.0
+margin_right = 420.0
+margin_bottom = 143.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 placeholder_text = "Username"
 
 [node name="Email" type="LineEdit" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_top = 168
-margin_right = 420
-margin_bottom = 208
+margin_top = 163.0
+margin_right = 420.0
+margin_bottom = 203.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 placeholder_text = "Email"
 
 [node name="Password" type="LineEdit" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_top = 228
-margin_right = 420
-margin_bottom = 268
+margin_top = 223.0
+margin_right = 420.0
+margin_bottom = 263.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
@@ -105,9 +105,9 @@ secret = true
 placeholder_text = "Password"
 
 [node name="ConfirmPassword" type="LineEdit" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_top = 288
-margin_right = 420
-margin_bottom = 328
+margin_top = 283.0
+margin_right = 420.0
+margin_bottom = 323.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
@@ -115,27 +115,27 @@ secret = true
 placeholder_text = "Confirm Password"
 
 [node name="ErrorLabel" type="Label" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_top = 348
-margin_right = 420
-margin_bottom = 372
+margin_top = 343.0
+margin_right = 420.0
+margin_bottom = 365.0
 custom_colors/font_color = Color( 0.937255, 0.32549, 0.313726, 1 )
 custom_fonts/font = SubResource( 3 )
 align = 1
 autowrap = true
 
 [node name="SignUpButton" type="Button" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_top = 392
-margin_right = 420
-margin_bottom = 432
+margin_top = 385.0
+margin_right = 420.0
+margin_bottom = 425.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 5 )
 text = "Sign Up"
 
 [node name="BackToLogin" type="Button" parent="CenterContainer/SignUpPanel/VBoxContainer"]
-margin_top = 452
-margin_right = 420
-margin_bottom = 476
+margin_top = 445.0
+margin_right = 420.0
+margin_bottom = 473.0
 custom_colors/font_color = Color( 0.0862745, 0.384314, 0.792157, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Back to Login"

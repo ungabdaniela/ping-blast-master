@@ -39,7 +39,7 @@ script = ExtResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.870588, 0.345098, 0.0627451, 1 )
 
 [node name="GameTitle" type="Label" parent="."]
 anchor_left = 0.5
@@ -59,11 +59,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -57.0
 custom_fonts/font = SubResource( 2 )
-text = "2022 - djalexkidd"
+text = "Daniela Ungab"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TopLabel" type="Label" parent="."]
 anchor_left = 0.5
@@ -162,9 +159,6 @@ margin_right = 1272.0
 margin_bottom = 640.0
 texture_normal = ExtResource( 4 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="toggled" from="TateButton" to="." method="_on_TateButton_toggled"]
