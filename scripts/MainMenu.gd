@@ -13,6 +13,7 @@ func _ready():
 	var buttons = {
 		"VBoxContainer/PlayButton": "_on_PlayButton_pressed",
 		"VBoxContainer/LeaderboardButton": "_on_LeaderboardButton_pressed",
+		"VBoxContainer/ChallengesButton": "_on_ChallengesButton_pressed",
 		"VBoxContainer/SettingsButton": "_on_SettingsButton_pressed",
 		"VBoxContainer/QuitButton": "_on_QuitButton_pressed"
 	}
@@ -65,3 +66,6 @@ func _on_LeaderboardButton_pressed():
 
 func _on_SettingsButton_pressed():
 	get_tree().change_scene("res://scenes/Settings.tscn")
+
+func _on_ChallengesButton_pressed():
+	get_tree().change_scene("res://scenes/DailyChallenges.tscn")

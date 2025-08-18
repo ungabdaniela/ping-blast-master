@@ -38,9 +38,6 @@ align = 1
 max_length = 16
 placeholder_text = "SETTINGS_NICKNAME"
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FullScreenButton" type="Button" parent="."]
 anchor_left = 0.5

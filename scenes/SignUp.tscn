@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/SignUp.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.129412, 0.129412, 0.129412, 0.921569 )
+bg_color = Color( 0.360784, 0.431373, 0.364706, 0.921569 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
