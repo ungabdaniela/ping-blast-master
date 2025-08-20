@@ -124,7 +124,7 @@ func _on_HUD_switch_bg():
 func _on_Ball_explode():
 	$PopSound.play()
 	$CanvasLayer/HUD.scorebonus()
-
+	
 func _on_Player_multibullet():
 	multi_bullet_enabled = true
 

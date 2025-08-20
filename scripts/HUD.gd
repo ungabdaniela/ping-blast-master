@@ -11,7 +11,7 @@ func _ready():
 
 #Ajoute 10 points quand une boule est touchée :lenny:
 func _on_Ball_add_score():
-	score += 10
+	score += 15
 	$ScoreValue.text = String(score) #Actualise le compteur de pièces
 	
 	#Change l'arrière-plan quand le score est à chaque multiple de 5000
