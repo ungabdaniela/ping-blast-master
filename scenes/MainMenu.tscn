@@ -37,9 +37,11 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.870588, 0.345098, 0.0627451, 1 )
+rect_rotation = -360.0
+color = Color( 0.0431373, 0.156863, 0.0470588, 1 )
 
 [node name="GameTitle" type="Label" parent="."]
 anchor_left = 0.5
@@ -57,7 +59,8 @@ text = "PING BLAST"
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -57.0
+margin_top = -60.0
+margin_bottom = 5.0
 custom_fonts/font = SubResource( 2 )
 text = "Daniela Ungab"
 align = 1
@@ -68,9 +71,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -184.0
-margin_top = 170.5
-margin_right = -72.0
-margin_bottom = 213.5
+margin_top = 171.0
+margin_right = -67.0
+margin_bottom = 227.0
 custom_fonts/font = SubResource( 4 )
 text = "Top:"
 align = 1
@@ -113,8 +116,9 @@ __meta__ = {
 [node name="TateButton" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -35.0
+margin_top = -39.0
 margin_right = 335.0
+margin_bottom = -4.0
 custom_fonts/font = SubResource( 6 )
 custom_styles/focus = SubResource( 7 )
 toggle_mode = true
